@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arte y Diseño | Walid</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="pagina-arte">
+
+    <!-- Navegación -->
+    <nav class="navbar animate-fade-up">
+        <a href="index.html" class="logo" style="text-decoration: none;">Walid</a>
+        
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html#habilidades">Hard Skills</a></li>
+            <li><a href="index.html#ideas">Diario de Ideas</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="sun-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Cabecera del Proyecto Artístico -->
+    <header class="hero-proyecto">
+        <div class="contenedor animate-fade-up delay-1">
+            <a href="index.html" class="btn-volver">&larr; Volver al inicio</a>
+            <h1 class="titulo-proyecto">Arte y <span class="highlight-arte">Diseño</span></h1>
+            
+            <div class="tags-proyecto">
+                <span class="tag tag-arte">Ilustración Digital y a Mano</span>
+                <span class="tag tag-arte">Cursi Detalles</span>
+                <span class="tag tag-arte">Estudios de Anatomía</span>
+            </div>
+
+            <p class="descripcion-corta">Exploración de la creatividad a través del dibujo, la sensibilidad visual, estudios de rostros y manos, y colaboraciones en productos físicos memorables.</p>
+        </div>
+    </header>
+
+    <!-- Contenido del Caso de Estudio -->
+    <section class="contenido-proyecto contenedor">
+        
+        <div class="grid-dos-columnas reveal">
+            <div class="bloque-texto">
+                <h3>Sensibilidad y Trazo</h3>
+                <p>El dibujo a mano libre y digital me ha enseñado a observar las proporciones, la armonía y la paciencia. Estudiar expresiones en rostros, la complejidad de las manos y personajes como Claire Redfield entrena la vista para apreciar el equilibrio visual, algo que luego traslado al diseño web.</p>
+            </div>
+            <div class="bloque-texto">
+                <h3>Colaboración en Cursi Detalles</h3>
+                <p>Mi participación en el diseño y creación para este negocio de detalles florales y regalos me permitió entender cómo los elementos visuales físicos y los stickers personalizados generan emociones reales en las personas, conectando la estética con el detalle humano.</p>
+            </div>
+        </div>
+
+        <!-- Galería Artística con tus imágenes reales -->
+        <div class="galeria-proyectos reveal">
+            <h3 class="titulo-galeria" style="margin-bottom: 2rem; text-align: center;">Galería Creativa</h3>
+            
+            <div class="grid-galeria">
+                <!-- Imagen 1: Claire Redfield -->
+                <div class="item-galeria principal">
+                    <img src="assets/claire_redfield.png" alt="Claire Redfield Ilustración">
+                    <span class="caption-galeria">Mi primera ilustración digital - Un retrato de Claire Redfield</span>
+                </div>
+
+                <!-- Imagen 2: Cursi Art 1 -->
+                <div class="item-galeria">
+                    <img src="assets/cursi_art_1.png" alt="Cursi Detalles Arte 1">
+                    <span class="caption-galeria">Mi segunda ilustracion digitial - El primer dibujo en colaboracion con Cursi Detalles para el dia de las madres</span>
+                </div>
+
+                <!-- Imagen 3: Cursi Art 2 (Stickers) -->
+                <div class="item-galeria">
+                    <img src="assets/cursi_art_2.png" alt="Stickers y elementos Cursi Detalles">
+                    <span class="caption-galeria">Diseño de stickers y elementos culturales como segunda colaboracion con Cursi Detalles</span>
+                </div>
+
+                <!-- Imagen 4: Estudios de Rostros -->
+                <div class="item-galeria">
+                    <img src="assets/faces.png" alt="Estudios de rostros">
+                    <span class="caption-galeria">Prácticas y estudios de expresiones y rostros</span>
+                </div>
+
+                <!-- Imagen 5: Estudios de Manos -->
+                <div class="item-galeria">
+                    <img src="assets/hands.png" alt="Estudios de manos">
+                    <span class="caption-galeria">Prácticas de anatomía y manos</span>
+                </div>
+
+                <!-- Imagen 6: Bocetos Resident Evil -->
+                <div class="item-galeria principal">
+                    <img src="assets/resident_evil_sketchs.png" alt="Resident Evil Bocetos">
+                    <span class="caption-galeria">Bocetos e ilustraciones conceptuales de Resident Evil</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,602 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+
+/* =========================================================
+   1. VARIABLES GLOBALES (PALETA DE COLORES)
+========================================================= */
+:root {
+    --azul-principal: #0066FF; 
+    --azul-claro: #E6F0FF; 
+    --blanco: #FFFFFF; 
+    --fondo-suave: #E5EAF2; 
+    --texto-oscuro: #0F172A; 
+    --texto-gris: #475569; 
+    --sombra-flotante: rgba(10, 25, 50, 0.12); 
+    --borde-suave: #CFD8E3; 
+}
+
+body.dark-mode {
+    --fondo-suave: #111827; 
+    --blanco: #1F2937; 
+    --texto-oscuro: #F9FAFB; 
+    --texto-gris: #9CA3AF; 
+    --azul-principal: #3B82F6; 
+    --azul-claro: rgba(226, 211, 190, 0.1); 
+    --color-camisa: #E2D3BE; 
+    --sombra-flotante: rgba(0, 0, 0, 0.4); 
+    --borde-suave: rgba(255, 255, 255, 0.05);
+}
+
+/* =========================================================
+   2. RESET Y TIPOGRAFÍA BASE
+========================================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--fondo-suave);
+    color: var(--texto-oscuro);
+    line-height: 1.6;
+    transition: background-color 0.4s ease, color 0.4s ease; 
+}
+
+/* =========================================================
+   3. COMPONENTES REUTILIZABLES
+========================================================= */
+.contenedor { max-width: 1000px; margin: 0 auto; }
+
+.btn {
+    padding: 1rem 2rem; border-radius: 8px; text-decoration: none; font-weight: 700;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover { transform: translateY(-3px); }
+.btn-primary { background-color: var(--azul-principal); color: #FFFFFF; box-shadow: 0 4px 14px rgba(0, 102, 255, 0.3); }
+.btn-secondary { background-color: var(--azul-claro); color: var(--azul-principal); }
+
+.tag {
+    background-color: var(--azul-claro); color: var(--azul-principal);
+    padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.75rem;
+    font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+}
+
+.card, .nota, .item-galeria {
+    background-color: var(--blanco);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    border: 1px solid var(--borde-suave);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover, .nota:hover, .item-galeria:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px var(--sombra-flotante);
+}
+
+/* =========================================================
+   4. NAVEGACIÓN Y MENÚ (FLOTANTE UNIFICADO)
+========================================================= */
+.navbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 2.5rem; position: sticky; top: 20px; z-index: 1000; 
+    max-width: 1000px; margin: 0 auto; background-color: var(--blanco); 
+    border-radius: 50px; box-shadow: 0 10px 30px var(--sombra-flotante); 
+    border: 1px solid var(--borde-suave);
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+.logo { font-weight: 900; font-size: 1.5rem; color: var(--azul-principal); text-decoration: none; }
+.nav-links { list-style: none; display: flex; gap: 2.5rem; }
+.nav-links a { text-decoration: none; color: var(--texto-oscuro); font-weight: 500; transition: color 0.3s; }
+.nav-links a:hover { color: var(--azul-principal); }
+
+.nav-actions { display: flex; align-items: center; gap: 1rem; }
+.theme-toggle { background: none; border: none; color: var(--texto-oscuro); cursor: pointer; padding: 5px; transition: transform 0.3s; }
+.theme-toggle:hover { color: var(--azul-principal); transform: rotate(15deg); }
+.hidden { display: none !important; }
+
+/* =========================================================
+   5. SECCIONES PRINCIPALES (INDEX)
+========================================================= */
+.hero { min-height: 75vh; display: flex; align-items: center; padding: 4rem 5% 2rem 5%; }
+.hero-container { max-width: 1200px; margin: 0 auto; width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 3rem; }
+.hero-content { flex: 1; max-width: 600px; }
+.hero-title { font-size: 4rem; font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+.hero-subtitle { font-size: 1.5rem; color: var(--texto-gris); margin-bottom: 2.5rem; }
+.hero-buttons { display: flex; gap: 1rem; }
+
+.foto-marco { width: 450px; height: 450px; border-radius: 50%; overflow: hidden; animation: flotar-claro 6s ease-in-out infinite; }
+.foto-marco img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
+.foto-marco:hover img { transform: scale(1.05); }
+
+.seccion-habilidades, .seccion-ideas { padding: 5rem 5%; }
+.titulo-seccion { font-size: 2.5rem; font-weight: 900; color: var(--texto-oscuro); margin-bottom: 0.5rem; }
+.subtitulo-seccion { color: var(--texto-gris); margin-bottom: 3rem; font-size: 1.1rem; }
+
+.grid-habilidades { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.grid-ideas { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem; }
+
+.card-link { text-decoration: none; color: inherit; display: block; }
+.card { padding: 2rem; }
+.card-icono { font-size: 2.5rem; margin-bottom: 1rem; }
+.nota { padding: 2.5rem; border-left: 4px solid var(--azul-principal); display: flex; flex-direction: column; align-items: flex-start; }
+
+/* =========================================================
+   6. PÁGINAS DE PROYECTOS (ESTILOS BASE COMUNES)
+========================================================= */
+.hero-proyecto { padding: 5rem 5% 2rem 5%; text-align: center; }
+.btn-volver { display: inline-block; color: var(--texto-gris); text-decoration: none; font-weight: 500; margin-bottom: 2rem; }
+.btn-volver:hover { color: var(--azul-principal); }
+.titulo-proyecto { font-size: 3.5rem; font-weight: 900; color: var(--texto-oscuro); margin-bottom: 1.5rem; }
+.tags-proyecto { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.descripcion-corta { color: var(--texto-gris); font-size: 1.25rem; max-width: 700px; margin: 0 auto; }
+
+.contenido-proyecto { padding: 3rem 5% 6rem 5%; max-width: 1000px; margin: 0 auto; }
+.grid-dos-columnas { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem; margin-bottom: 4rem; }
+.grid-galeria { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.item-galeria { overflow: hidden; }
+.item-galeria.principal { grid-column: span 2; }
+.item-galeria img { width: 100%; height: auto; display: block; object-fit: cover; }
+.caption-galeria { display: block; padding: 1rem; font-size: 0.9rem; color: var(--texto-gris); text-align: center; }
+.placeholder-galeria { width: 100%; height: 250px; display: flex; align-items: center; justify-content: center; background-color: var(--fondo-suave); color: var(--texto-gris); }
+
+.contenedor-logo-principal { display: flex; justify-content: center; margin: 1.5rem 0 2rem 0; }
+.logo-principal-img { max-width: 480px; width: 100%; filter: drop-shadow(0 8px 25px rgba(0, 141, 141, 0.25)); transition: transform 0.3s; }
+.logo-principal-img:hover { transform: scale(1.02); }
+
+.contenedor-btn-github { margin-top: 2rem; display: flex; justify-content: center; }
+.btn-github { display: inline-flex; align-items: center; gap: 10px; background-color: var(--texto-oscuro); color: var(--fondo-suave); padding: 0.8rem 1.8rem; border-radius: 8px; text-decoration: none; font-weight: 700; transition: transform 0.2s, background 0.2s; }
+.btn-github:hover { transform: translateY(-3px); background-color: var(--azul-principal); color: #FFFFFF; }
+
+
+/* =========================================================
+   6.1. PERSONALIDAD ARTÍSTICA PROPIA (projects_art.html)
+========================================================= */
+body.pagina-arte {
+    --azul-principal: #D97706; 
+    --azul-claro: rgba(217, 119, 6, 0.12);
+    --blanco: #fdf5e6; 
+    --texto-oscuro: #2c251e;
+    --texto-gris: #5c4e40;
+    --borde-suave: #e6dccb;
+    background-color: #fcf8f2; 
+    background-image: radial-gradient(circle, #f3ede2 0%, #e6dccb 100%);
+}
+
+body.dark-mode.pagina-arte {
+    --azul-principal: #F59E0B;
+    --azul-claro: rgba(245, 158, 11, 0.15);
+    --blanco: #1a1512; 
+    --texto-oscuro: #f3ede2;
+    --texto-gris: #bfae92;
+    --borde-suave: rgba(255, 255, 255, 0.05);
+    --sombra-flotante: rgba(0, 0, 0, 0.6);
+    background-color: #1c1815;
+    background-image: radial-gradient(circle, #2d241d 0%, #15110e 100%);
+}
+
+body.pagina-arte .hero-proyecto { text-align: center; max-width: 900px; margin: 0 auto; border-bottom: 1px dashed rgba(217, 119, 6, 0.3); }
+body.pagina-arte .titulo-proyecto { font-family: 'Playfair Display', serif; font-size: 3.8rem; letter-spacing: -0.5px; }
+body.pagina-arte .highlight-arte { font-family: 'Caveat', cursive; font-size: 1.4em; color: var(--azul-principal); transform: rotate(-3deg); display: inline-block; }
+body.pagina-arte .tag-arte { background-color: rgba(217, 119, 6, 0.15); border: 1px solid rgba(217, 119, 6, 0.3); font-family: 'Space Mono', monospace; }
+
+body.pagina-arte .bloque-texto { background: rgba(0, 0, 0, 0.02); border-left: 3px solid var(--azul-principal); padding: 2rem; border-radius: 0 8px 8px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+body.dark-mode.pagina-arte .bloque-texto { background: rgba(255, 255, 255, 0.02); box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+body.pagina-arte .bloque-texto h3 { font-family: 'Space Mono', monospace; color: var(--azul-principal); margin-bottom: 0.8rem; }
+
+body.pagina-arte .item-galeria { background: #f7f1e3; padding: 12px 12px 35px 12px; border-radius: 4px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); transform: rotate(0deg); transition: transform 0.3s, box-shadow 0.3s; }
+body.pagina-arte .item-galeria:nth-child(even) { transform: rotate(1deg); }
+body.pagina-arte .item-galeria:nth-child(odd) { transform: rotate(-1deg); }
+body.pagina-arte .item-galeria:hover { transform: scale(1.02) rotate(0deg) !important; box-shadow: 0 20px 40px rgba(217, 119, 6, 0.3); z-index: 10; }
+body.pagina-arte .item-galeria img { border-radius: 2px; filter: contrast(1.05); }
+body.pagina-arte .caption-galeria { color: #4a4033; font-family: 'Space Mono', monospace; font-size: 0.8rem; padding-top: 1rem; font-weight: 700; }
+
+
+/* =========================================================
+   6.2. PERSONALIDAD TECH Y PROGRAMACIÓN (projects_development.html)
+========================================================= */
+
+/* MODO CLARO MEJORADO: Estilo VS Code Light / GitHub Light */
+body.pagina-dev {
+    --azul-principal: #0366d6; /* Azul brillante clásico de funciones en IDEs */
+    --azul-claro: rgba(3, 102, 214, 0.1);
+    --blanco: #ffffff;
+    --texto-oscuro: #24292e; /* Gris muy oscuro para lectura impecable */
+    --texto-gris: #586069; /* Gris técnico para comentarios de código */
+    --borde-suave: #e1e4e8;
+    background-color: #f6f8fa; /* Fondo de entorno de desarrollo limpio */
+    
+    /* Cuadrícula técnica (Blueprint) muy fina y elegante */
+    background-image: 
+        linear-gradient(rgba(203, 213, 225, 0.5) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(203, 213, 225, 0.5) 1px, transparent 1px);
+    background-size: 25px 25px;
+}
+
+/* MODO OSCURO: Estilo Cyberpunk / Cyan Neón */
+body.dark-mode.pagina-dev {
+    --azul-principal: #00f0ff; 
+    --azul-claro: rgba(0, 240, 255, 0.1);
+    --blanco: #1e1e1e; 
+    --texto-oscuro: #e2e8f0;
+    --texto-gris: #94a3b8;
+    --borde-suave: #333333;
+    background-color: #0b0f19;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+/* Tipografía de Editor de Código */
+body.pagina-dev .titulo-proyecto {
+    font-family: 'Space Mono', monospace;
+    letter-spacing: -1.5px;
+}
+
+/* Texto de la palabra IA con brillo/glow en modo oscuro, sólido en claro */
+body.pagina-dev .highlight-dev {
+    color: var(--azul-principal);
+    font-weight: 900;
+}
+body.dark-mode.pagina-dev .highlight-dev {
+    text-shadow: 0 0 15px var(--azul-claro);
+}
+
+/* Etiquetas (tags) estilo fragmentos de código */
+body.pagina-dev .tag {
+    font-family: 'Space Mono', monospace;
+    background: var(--blanco);
+    border: 1px solid var(--azul-principal);
+    border-radius: 4px;
+    text-transform: lowercase;
+    font-weight: 700;
+}
+body.pagina-dev .tag::before { content: "<"; color: var(--texto-gris); }
+body.pagina-dev .tag::after { content: "/>"; color: var(--texto-gris); }
+
+/* VENTANAS ESTILO VS CODE */
+body.pagina-dev .ventana-codigo {
+    background-color: #ffffff;
+    border: 1px solid #d1d5da;
+    border-top: 28px solid #e1e4e8; /* Barra superior limpia tipo macOS Light */
+    border-radius: 8px;
+    position: relative;
+    padding: 1.5rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.06); /* Sombra difuminada premium */
+}
+
+body.dark-mode.pagina-dev .ventana-codigo {
+    background-color: #1e1e1e; /* Fondo clásico de VS Code Dark */
+    border: 1px solid #333;
+    border-top: 28px solid #2d2d2d;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+/* Los 3 botones de "Cerrar, Minimizar, Maximizar" en la esquina de la ventana */
+body.pagina-dev .ventana-codigo::before {
+    content: "";
+    position: absolute;
+    top: -16px;
+    left: 12px;
+    width: 10px; height: 10px;
+    background: #ff5f56;
+    border-radius: 50%;
+    box-shadow: 18px 0 0 #ffbd2e, 36px 0 0 #27c93f;
+}
+
+body.pagina-dev .ventana-codigo h3 {
+    font-family: 'Space Mono', monospace;
+    color: var(--azul-principal);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Engaño visual para que parezca una función de JS (Colores de sintaxis) */
+body.pagina-dev .ventana-codigo h3::before { content: "function "; color: #d73a49; font-size: 0.9rem; }
+body.pagina-dev .ventana-codigo h3::after { content: "() {"; color: var(--texto-oscuro); font-size: 0.9rem;}
+
+body.dark-mode.pagina-dev .ventana-codigo h3::before { color: #c678dd; } /* Rosa/Morado en modo oscuro */
+body.dark-mode.pagina-dev .ventana-codigo h3::after { color: var(--texto-gris); }
+
+body.pagina-dev .ventana-codigo p {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--texto-oscuro);
+}
+
+/* Llave de cierre de la función al final del texto */
+body.pagina-dev .ventana-codigo p::after {
+    content: "\n}";
+    white-space: pre;
+    display: block;
+    color: var(--texto-oscuro);
+    margin-top: 0.5rem;
+}
+body.dark-mode.pagina-dev .ventana-codigo p::after { color: var(--texto-gris); }
+
+/* Galería Web: Pantallas Flotantes */
+body.pagina-dev .item-galeria {
+    background: var(--blanco);
+    padding: 0;
+    border: 1px solid var(--borde-suave);
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+body.pagina-dev .item-galeria:hover {
+    border-color: var(--azul-principal);
+    box-shadow: 0 10px 40px var(--azul-claro);
+}
+
+body.pagina-dev .caption-galeria {
+    font-family: 'Space Mono', monospace;
+    color: #2ea043; /* Verde de comentarios en Git/VS Code claro */
+    padding: 1rem;
+    font-weight: 700;
+}
+body.dark-mode.pagina-dev .caption-galeria { color: #6a9955; /* Verde clásico de comentarios oscuro */ }
+
+/* =========================================================
+   6.3. PERSONALIDAD HARDWARE / PLACA BASE (projects_bytetech.html)
+========================================================= */
+
+/* MODO CLARO: Estilo "Placa Base Metálica" con circuitos Azules (Combina con tu logo) */
+body.pagina-hardware {
+    --azul-principal: #005bb5; /* Azul tecnológico fuerte y limpio */
+    --azul-claro: rgba(0, 91, 181, 0.15);
+    --blanco: #ffffff;
+    --texto-oscuro: #1e293b;
+    --texto-gris: #64748b;
+    --borde-suave: #cbd5e1;
+    --pines-oro: #d4af37; 
+    
+    background-color: #e2e8f0; 
+    background-image: 
+        linear-gradient(rgba(0, 91, 181, 0.08) 2px, transparent 2px),
+        linear-gradient(90deg, rgba(0, 91, 181, 0.08) 2px, transparent 2px);
+    background-size: 40px 40px;
+    background-position: center center;
+}
+
+/* MODO OSCURO: Estilo "Placa Base Gaming" (Stealth + Cyan Neon) */
+body.dark-mode.pagina-hardware {
+    --azul-principal: #00d2d3; 
+    --azul-claro: rgba(0, 210, 211, 0.15);
+    --blanco: #12141a; 
+    --texto-oscuro: #f8fafc;
+    --texto-gris: #94a3b8;
+    --borde-suave: #1e222d;
+    --pines-oro: #eab308;
+    
+    background-color: #0b0c10; 
+    background-image: 
+        linear-gradient(rgba(0, 210, 211, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 210, 211, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+/* Ajustes de Cabecera y Logo */
+body.pagina-hardware .hero-proyecto {
+    border-bottom: 2px solid var(--azul-principal);
+    position: relative;
+    padding-bottom: 4rem;
+}
+body.pagina-hardware .hero-proyecto::after {
+    content: "";
+    position: absolute;
+    bottom: -2px; left: 10%; right: 10%;
+    height: 2px;
+    background: var(--azul-principal);
+    box-shadow: 0 0 15px var(--azul-principal); 
+}
+
+body.pagina-hardware .logo-principal-img {
+    filter: drop-shadow(0 0 20px var(--azul-claro));
+    margin-bottom: 1rem;
+}
+
+/* Etiquetas (Tags) estilo Componentes SMD */
+body.pagina-hardware .tag-hardware {
+    background-color: var(--blanco);
+    border: 1px solid var(--texto-gris);
+    color: var(--texto-oscuro);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    border-radius: 2px; 
+    padding: 0.3rem 0.8rem;
+    box-shadow: 2px 2px 0px var(--azul-principal); 
+    transition: all 0.2s ease;
+}
+body.pagina-hardware .tag-hardware:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 4px 4px 0px var(--azul-principal);
+}
+
+/* Bloques de Texto estilo MICROCHIPS (Limpios, como antes) */
+body.pagina-hardware .microchip {
+    background-color: var(--blanco);
+    border: 2px solid var(--borde-suave);
+    border-radius: 6px;
+    padding: 2.5rem 2rem 3.5rem 2rem;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.03), 0 15px 30px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+body.dark-mode.pagina-hardware .microchip {
+    background-color: #12141a; /* Regresamos al gris muy oscuro elegante */
+    border: 1px solid #333;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.02), 0 10px 40px rgba(0,0,0,0.5);
+}
+
+/* Pines de oro en la parte inferior */
+body.pagina-hardware .pines-oro {
+    position: absolute;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    height: 12px;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 4px,
+        var(--pines-oro) 4px,
+        var(--pines-oro) 8px
+    );
+    border-top: 1px solid var(--borde-suave);
+    opacity: 0.8;
+}
+
+/* Títulos con tipografía técnica */
+body.pagina-hardware .led-text {
+    font-family: 'Space Mono', monospace;
+    color: var(--azul-principal);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+body.dark-mode.pagina-hardware .led-text {
+    text-shadow: 0 0 10px var(--azul-claro);
+}
+
+/* Restablecemos el color de texto a su versión original limpia */
+body.pagina-hardware .microchip p {
+    color: var(--texto-gris); 
+    font-size: 0.9rem;
+}
+
+/* Galería Web: Estilo Módulos de Hardware */
+body.pagina-hardware .chip-imagen {
+    background: var(--blanco);
+    padding: 10px;
+    border: 2px solid var(--borde-suave);
+    border-radius: 4px;
+    box-shadow: 4px 4px 0px var(--texto-gris);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+body.dark-mode.pagina-hardware .chip-imagen {
+    box-shadow: 4px 4px 0px var(--azul-principal);
+}
+
+body.pagina-hardware .chip-imagen:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 7px 7px 0px var(--azul-principal);
+}
+
+body.pagina-hardware .caption-galeria {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--texto-oscuro);
+    text-align: left;
+    padding: 0.8rem 0.5rem 0 0.5rem;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   7. DIARIO 3D INTERACTIVO (ESPACIO SPACE MONO)
+========================================================= */
+body.pagina-diario-3d, body.pagina-diario-3d * { font-family: 'Space Mono', monospace !important; }
+body.pagina-diario-3d { background-color: #2b1d11; background-image: radial-gradient(circle, #3d2918 0%, #1a110a 100%); color: #2C2825; min-height: 100vh; transition: background 0.5s ease; }
+body.pagina-diario-3d.luz-apagada { background-color: #0b0704; background-image: radial-gradient(circle, #140d07 0%, #030201 100%); }
+body.pagina-diario-3d.luz-apagada .diario-libro { box-shadow: 0 10px 30px rgba(0,0,0,0.8), inset 0 0 50px rgba(0,0,0,0.5); filter: brightness(0.45); }
+body.pagina-diario-3d.luz-apagada .haz-luz { opacity: 0.15; }
+
+.lampara-fixture { position: absolute; top: 0; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; z-index: 10; }
+.cable-lampara { width: 2px; height: 40px; background-color: #111; }
+.pantalla-lampara { width: 90px; height: 35px; background: linear-gradient(135deg, #444, #222); border-radius: 0 0 50px 50px; z-index: 2; }
+.haz-luz { position: absolute; top: 35px; width: 450px; height: 500px; background: linear-gradient(to bottom, rgba(255, 235, 170, 0.25) 0%, transparent 100%); clip-path: polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%); pointer-events: none; transition: opacity 0.5s ease; }
+.btn-lampara { background: #333; color: #fff; border-radius: 50%; width: 30px; height: 30px; border: none; margin-top: -15px; cursor: pointer; z-index: 12; }
+
+.nav-3d { display: flex; justify-content: space-between; padding: 1.5rem 3%; }
+.link-volver { color: #d1b89d; text-decoration: none; font-size: 0.85rem; font-weight: 700; }
+.instruccion-3d { color: #8c735d; font-size: 0.8rem; }
+.escritorio-mesa { display: flex; flex-direction: column; align-items: center; padding: 2rem 1rem 4rem 1rem; perspective: 1200px; }
+
+.diario-libro { display: flex; width: 840px; max-width: 92vw; height: 460px; background-color: #f7f1e3; border-radius: 6px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); transform: rotateX(12deg); transition: transform 0.3s ease, filter 0.5s ease; }
+.diario-libro.hojeando { transform: rotateX(15deg) scale(0.98); }
+.pagina { flex: 1; padding: 2.5rem 3rem; display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(to right, #f4ecd8 0%, #fffbf0 100%); }
+.pagina-izquierda { border-radius: 6px 0 0 6px; border-right: 1px solid #e0d4be; }
+.pagina-derecha { border-radius: 0 6px 6px 0; }
+.lomo-libro { width: 20px; background: linear-gradient(to right, #dcd1bc, #bfae92, #dcd1bc); z-index: 2; }
+.meta-hoja { display: flex; justify-content: space-between; font-size: 0.75rem; border-bottom: 1px dashed #d1c4aa; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+.meta-hoja .tag { color: #b45309; font-weight: 700; }
+.contenido-pagina h3 { color: #2c251e; margin-bottom: 0.8rem; }
+.contenido-pagina p { font-size: 0.85rem; line-height: 1.7; color: #4a4033; }
+.numero-pagina { text-align: center; font-size: 0.75rem; color: #9c8e7b; }
+.controles-hojear { display: flex; gap: 2rem; margin-top: 2.5rem; align-items: center; }
+.btn-hoja { background: #422e1b; color: #e6dfd5; padding: 0.6rem 1.2rem; border-radius: 4px; border: none; font-family: 'Space Mono', monospace; cursor: pointer; }
+.btn-hoja:hover { background: #b45309; color: #fff; }
+.indicador-paginas { color: #a38c75; font-size: 0.85rem; }
+
+/* =========================================================
+   8. ANIMACIONES Y EFECTOS
+========================================================= */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-up { opacity: 0; animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.4s; } .delay-3 { animation-delay: 0.6s; }
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+.highlight { position: relative; display: inline-block; color: var(--azul-principal); animation: pulso-luz 2s infinite alternate; }
+@keyframes pulso-luz { 0% { text-shadow: 0 0 5px rgba(0, 102, 255, 0.2); } 100% { text-shadow: 0 0 20px rgba(0, 102, 255, 0.7); } }
+body.dark-mode .highlight { animation: pulso-azul 2s infinite alternate; }
+@keyframes pulso-azul { 0% { text-shadow: 0 0 5px rgba(59, 130, 246, 0.2); } 100% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.6); } }
+
+@keyframes flotar-claro { 0%, 100% { transform: translateY(0px); box-shadow: 0 0 0 6px var(--fondo-suave), 0 0 0 9px var(--azul-principal), 0 20px 40px rgba(0, 102, 255, 0.15); } 50% { transform: translateY(-15px); box-shadow: 0 0 0 6px var(--fondo-suave), 0 0 0 11px var(--azul-principal), 0 25px 50px rgba(0, 102, 255, 0.35); } }
+body.dark-mode .foto-marco { animation: flotar-walid 6s ease-in-out infinite; }
+@keyframes flotar-walid { 0%, 100% { transform: translateY(0px); box-shadow: 0 0 0 6px var(--fondo-suave), 0 0 0 9px var(--azul-principal), 0 20px 40px rgba(59, 130, 246, 0.15); } 50% { transform: translateY(-15px); box-shadow: 0 0 0 6px var(--fondo-suave), 0 0 0 11px var(--azul-principal), 0 25px 50px rgba(59, 130, 246, 0.35); } }
+
+/* =========================================================
+   9. MEDIA QUERIES (RESPONSIVIDAD Y CELULARES)
+========================================================= */
+.menu-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; z-index: 100; }
+.menu-toggle .bar { width: 25px; height: 3px; background-color: var(--azul-principal); border-radius: 5px; }
+
+@media (max-width: 992px) {
+    .hero-title { font-size: 3.2rem; }
+    .foto-marco { width: 350px; height: 350px; } 
+}
+
+@media (max-width: 850px) {
+    .nav-3d { flex-direction: column; align-items: center; gap: 0.4rem; padding: 0.8rem 1rem 0.2rem 1rem; position: relative; z-index: 20; }
+    .link-volver { font-size: 0.85rem; background: rgba(0, 0, 0, 0.4); padding: 0.3rem 0.7rem; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+    .instruccion-3d { display: none; }
+    .lampara-fixture { transform: translateX(-50%) scale(0.8); top: -5px; }
+    .escritorio-mesa { padding: 1.5rem 1rem 4rem 1rem; perspective: 1000px; }
+    
+    .diario-libro { width: 100% !important; max-width: 420px !important; height: auto !important; min-height: 440px !important; flex-direction: column !important; transform: rotateX(6deg) !important; border-radius: 6px; box-shadow: 0 15px 35px rgba(0,0,0,0.6); margin-top: 0.5rem; }
+    .pagina-derecha { display: none !important; }
+    .pagina-izquierda { border-right: none !important; border-radius: 6px !important; padding: 2rem 1.8rem !important; }
+    .lomo-libro { display: none !important; }
+    .contenido-pagina h3 { font-size: 1.1rem; }
+    .contenido-pagina p { font-size: 0.85rem; line-height: 1.6; }
+    
+    .controles-hojear { gap: 1rem; width: 100%; max-width: 420px; justify-content: space-between; margin-top: 1.5rem; }
+    .btn-hoja { padding: 0.5rem 0.9rem; font-size: 0.75rem; }
+    .indicador-paginas { font-size: 0.8rem; }
+}
+
+@media (max-width: 768px) {
+    .navbar { margin: 15px; border-radius: 20px; padding: 1rem 1.5rem; top: 15px; }
+    .menu-toggle { display: flex; }
+    .nav-links {
+        position: absolute; top: 75px; left: -120%; flex-direction: column;
+        background-color: var(--blanco); width: 100%; text-align: center; padding: 2rem 0; gap: 1.5rem;
+        box-shadow: 0 10px 15px var(--sombra-flotante); border-radius: 20px; z-index: 99; transition: left 0.4s;
+    }
+    .nav-links.active { left: 0; }
+    
+    .hero-container { flex-direction: column-reverse; text-align: center; gap: 1.5rem; margin-top: 1rem; }
+    .hero-content { display: flex; flex-direction: column; align-items: center; }
+    .hero-title { font-size: 2.2rem; margin-bottom: 1rem; }
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .btn { width: 100%; text-align: center; }
+    .titulo-seccion { font-size: 1.8rem; }
+    
+    /* TITULOS ADAPTADOS A MÓVIL EN TODAS LAS PÁGINAS PARA EVITAR CORTES */
+    .titulo-proyecto { font-size: 2.2rem !important; line-height: 1.2; }
+    body.pagina-arte .titulo-proyecto { font-size: 2.5rem !important; }
+    body.pagina-arte .highlight-arte { font-size: 1.3em !important; }
+    
+    .foto-marco { width: 220px; height: 220px; }
+    
+    .grid-galeria { grid-template-columns: 1fr; }
+    .item-galeria.principal { grid-column: span 1; }
+    .logo-principal-img { max-width: 300px; }
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diario de Ideas | Walid</title>
+    <!-- Importación obligatoria de Space Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="pagina-diario-3d">
+
+    <!-- Lámpara interactiva superior -->
+    <div class="lampara-fixture">
+        <div class="cable-lampara"></div>
+        <div class="pantalla-lampara"></div>
+        <div class="haz-luz"></div>
+        <button id="btn-lampara" class="btn-lampara" title="Encender/Apagar luz">💡</button>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="nav-3d">
+        <a href="index.html" class="link-volver">&larr; Volver al Portafolio</a>
+        <span class="instruccion-3d">Usa los botones para hojear el diario</span>
+    </nav>
+
+    <!-- Vista de la Mesa en Tercera Persona -->
+    <main class="escritorio-mesa">
+        
+        <div class="diario-libro" id="libro-diario">
+            <!-- Página Izquierda -->
+            <div class="pagina pagina-izquierda">
+                <div class="contenido-pagina" id="contenido-izq">
+                    <!-- El contenido se inyecta por JS -->
+                </div>
+                <div class="numero-pagina" id="num-izq">1</div>
+            </div>
+
+            <!-- Lomo del Libro -->
+            <div class="lomo-libro"></div>
+
+            <!-- Página Derecha -->
+            <div class="pagina pagina-derecha">
+                <div class="contenido-pagina" id="contenido-der">
+                    <!-- El contenido se inyecta por JS -->
+                </div>
+                <div class="numero-pagina" id="num-der">2</div>
+            </div>
+        </div>
+
+        <!-- Controles para hojear -->
+        <div class="controles-hojear">
+            <button id="btn-anterior" class="btn-hoja" onclick="cambiarPagina(-1)">&larr; Página Anterior</button>
+            <span id="indicador-paginas" class="indicador-paginas">Página 1 de 2</span>
+            <button id="btn-siguiente" class="btn-hoja" onclick="cambiarPagina(1)">Página Siguiente &rarr;</button>
+        </div>
+
+    </main>
+
+    <!-- Script centralizado -->
+    <script src="scripts.js"></script>
+</body>
+</html>

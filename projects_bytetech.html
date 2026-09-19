@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ByteTech | Soporte Técnico</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="pagina-hardware">
+
+    <!-- Navegación -->
+    <nav class="navbar animate-fade-up">
+        <a href="index.html" class="logo" style="text-decoration: none;">Walid</a>
+        
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html#habilidades">Hard Skills</a></li>
+            <li><a href="index.html#ideas">Diario de Ideas</a></li>
+            <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <svg id="sun-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Cabecera del Proyecto con el Logo -->
+    <header class="hero-proyecto">
+        <div class="contenedor animate-fade-up delay-1">
+            <a href="index.html" class="btn-volver">&larr; Volver al inicio</a>
+            
+            <!-- Logo grande de ByteTech -->
+            <div class="contenedor-logo-principal animate-fade-up">
+                <img src="assets/bytetech_logo.webp" alt="ByteTech Logo" class="logo-principal-img">
+            </div>
+
+            <div class="tags-proyecto">
+                <span class="tag tag-hardware">Hardware & Software</span>
+                <span class="tag tag-hardware">Mantenimiento</span>
+                <span class="tag tag-hardware">Diagnóstico</span>
+            </div>
+            
+            <p class="descripcion-corta">Resolución de problemas críticos en equipos informáticos, optimizando componentes para garantizar la máxima velocidad, estabilidad y rendimiento.</p>
+        </div>
+    </header>
+
+    <!-- Contenido del Caso de Estudio -->
+    <section class="contenido-proyecto contenedor">
+        
+        <div class="grid-dos-columnas reveal">
+            <div class="bloque-texto microchip">
+                <h3 class="led-text">01. El Problema Técnico</h3>
+                <p>Las computadoras con acumulación de calor, fallas de software o discos lentos reducen drásticamente la productividad. Las personas buscan diagnósticos certeros y soluciones definitivas que revivan sus estaciones de trabajo.</p>
+                <div class="pines-oro"></div>
+            </div>
+            <div class="bloque-texto microchip">
+                <h3 class="led-text">02. Metodología ByteTech</h3>
+                <p>Aplicación de mantenimiento preventivo y correctivo de alto nivel: limpieza profunda de componentes, gestión de cables impecable, optimización de sistemas operativos y reemplazo estratégico de hardware obsoleto.</p>
+                <div class="pines-oro"></div>
+            </div>
+        </div>
+
+        <!-- Galería de Muestras -->
+        <div class="galeria-proyectos reveal">
+            <h3 class="titulo-galeria led-text" style="text-align: center; margin-bottom: 2rem;">> SISTEMA_EN_LINEA</h3>
+            
+            <div class="grid-galeria">
+                <div class="item-galeria principal chip-imagen">
+                    <div class="placeholder-galeria" style="height: 350px;">Foto principal de mantenimiento o ensamble de equipos</div>
+                    <span class="caption-galeria">Estación de servicio técnico y ensamblaje</span>
+                </div>
+                <div class="item-galeria chip-imagen">
+                    <div class="placeholder-galeria">Detalle de hardware / limpieza</div>
+                    <span class="caption-galeria">Gestión de cables</span>
+                </div>
+                <div class="item-galeria chip-imagen">
+                    <div class="placeholder-galeria">Optimización de software</div>
+                    <span class="caption-galeria">Diagnóstico OS</span>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

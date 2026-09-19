@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walid | Portafolio y Jardín Digital</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navegación -->
+    <nav class="navbar animate-fade-up">
+        <div class="logo">Walid</div>
+        
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#habilidades">Hard Skills</a></li>
+            <li><a href="#ideas">Diario de Ideas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+
+        <!-- Acciones: Modo Oscuro + Menú Móvil -->
+        <div class="nav-actions">
+            <!-- Botón Modo Oscuro -->
+            <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+                <!-- Icono Luna (dibujado con SVG) -->
+                <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                </svg>
+                <!-- Icono Sol (dibujado con SVG, oculto por defecto) -->
+                <svg id="sun-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="5"></circle>
+                    <line x1="12" y1="1" x2="12" y2="3"></line>
+                    <line x1="12" y1="21" x2="12" y2="23"></line>
+                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                    <line x1="1" y1="12" x2="3" y2="12"></line>
+                    <line x1="21" y1="12" x2="23" y2="12"></line>
+                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                </svg>
+            </button>
+
+            <!-- Botón de menú para móviles -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Sección Principal (Hero) -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title animate-fade-up delay-1">Construyendo el <span class="highlight">cambio</span>.</h1>
+                <p class="hero-subtitle animate-fade-up delay-2">Forjando nuevas ideas, entrenando el cuerpo y aportando algo al mundo.</p>
+                <div class="hero-buttons animate-fade-up delay-3">
+                    <a href="#habilidades" class="btn btn-primary">Ver mis fuertes</a>
+                    <a href="#contacto" class="btn btn-secondary">Hablemos</a>
+                </div>
+            </div>
+
+            <div class="hero-image animate-fade-up delay-2">
+                <div class="foto-marco">
+                    <img src="assets/perfil.webp" alt="Foto de perfil de TuNombre">
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- Sección: El Constructor (Habilidades) -->
+    <section id="habilidades" class="seccion-habilidades">
+        <div class="contenedor">
+            <h2 class="titulo-seccion reveal">Mis <span class="highlight">Hard Skills</span>.</h2>
+            <p class="subtitulo-seccion reveal">Habilidades técnicas, operativas y creativas a tu disposición.</p>
+            
+            <div class="grid-habilidades">
+                <!-- Tarjeta 1: Desarrollo Web -->
+                <a href="projects_development.html" class="card-link reveal">
+                    <article class="card">
+                        <div class="card-icono">💻</div>
+                        <h3>Desarrollo Web con IA</h3>
+                        <p>Creación de páginas web con ayuda de IA, estructuradas desde cero con HTML, CSS y JS.</p>
+                    </article>
+                </a>
+
+                <!-- Tarjeta 2: Arte y Diseño -->
+                <a href="projects_art.html" class="card-link reveal">
+                    <article class="card">
+                        <div class="card-icono">🎨</div>
+                        <h3>Arte y Diseño</h3>
+                        <p>Ilustraci&oacute;n a mano, visi&oacute;n est&eacute;tica y colaboraci&oacute;n creativa en productos f&iacute;sicos y regalos con Cursi Detalles.</p>
+                    </article>
+                </a>
+
+                <!-- Tarjeta 3: Soporte Técnico -->
+                <a href="projects_bytetech.html" class="card-link reveal">
+                    <article class="card">
+                        <div class="card-icono">🔧</div>
+                        <h3>Soporte Técnico</h3>
+                        <p>Mantenimiento de equipos, resoluci&oacute;n de problemas de software y hardware con mi negocio ByteTech.</p>
+                    </article>
+                </a>
+            </div>
+        </div>
+    </section>
+
+<!-- Sección: Inventario de Ideas -->
+    <section id="ideas" class="seccion-ideas">
+        <div class="contenedor">
+            <h2 class="titulo-seccion reveal">Diario de Ideas.</h2>
+            <p class="subtitulo-seccion reveal">Reflexiones, proyectos y aprendizajes diarios.</p>
+            
+            <div class="grid-ideas">
+                <article class="nota reveal">
+                    <span class="tag">#Reflexion</span>
+                    <h3>La injusticia y el esfuerzo</h3>
+                    <p>Una pequeña reflexion sobre como la vida a veces puede parecer injusta para los que se esfuerzan dia a dia por mejorar.</p>
+                    <!-- En tu index.html, asegúrate de que el enlace de leer más o del menú apunte aquí -->
+                    <a href="journal.html" class="leer-mas">Leer apunte &rarr;</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
