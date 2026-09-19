@@ -151,16 +151,19 @@ body {
 /* =========================================================
    6.1. PERSONALIDAD ARTÍSTICA (projects_art.html)
 ========================================================= */
-body.dark-mode.pagina-arte {
-    --azul-principal: #F59E0B;
-    --azul-claro: rgba(245, 158, 11, 0.15);
-    --blanco: #1a1512; 
-    --texto-oscuro: #f3ede2;
-    --texto-gris: #bfae92;
-    --borde-suave: rgba(255, 255, 255, 0.05);
-    --sombra-flotante: rgba(0, 0, 0, 0.6);
+/* MODO CLARO: Página de Arte (Pergamino / Tono Cobre) */
+body.pagina-arte {
+    --azul-principal: #D97706; 
+    --azul-claro: rgba(217, 119, 6, 0.12);
+    --blanco: #fdf5e6; 
+    --texto-oscuro: #2c251e;
+    --texto-gris: #5c4e40;
+    --borde-suave: #e6dccb;
+    background-color: #fcf8f2; 
+    background-image: radial-gradient(circle, #f3ede2 0%, #e6dccb 100%);
 }
 
+/* MODO OSCURO: Página de Arte */
 body.dark-mode.pagina-arte {
     --azul-principal: #F59E0B;
     --azul-claro: rgba(245, 158, 11, 0.15);
